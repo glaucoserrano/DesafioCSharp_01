@@ -10,12 +10,15 @@ public class Menu
         Console.WriteLine("Digite uma opção de programa");
         Console.WriteLine("1 - Saudação");
         Console.WriteLine("2 - Nome Completo");
+        Console.WriteLine("3 - Numeros");
+        Console.WriteLine("4 - Verifica Placa");
+        Console.WriteLine("5 - Data Hora");
         Console.WriteLine("9 - Sair");
 
         opcao = Convert.ToInt32(Console.ReadLine());
         Seleciona(name, opcao);
     }
-    public void Seleciona(string name, int opcaoSelecionada)
+    private void Seleciona(string name, int opcaoSelecionada)
     {
         switch (opcao)
         {
@@ -24,7 +27,20 @@ public class Menu
                 saudacao.SaudacaoUsuario(name);
                 break;
             case 2:
-                Console.WriteLine("Selecionou 2");
+                NomeCompleto nome = new NomeCompleto();
+                nome.NomeSobrenome(name);
+                break;
+            case 3:
+                Numeros numero = new Numeros();
+                numero.MenuSecundario(name);
+                break;
+            case 4:
+                VerificarPlaca placa = new VerificarPlaca();
+                placa.ConsultaPlaca(name);
+                break;
+            case 5:
+                DataHora data = new DataHora();
+                data.DemonstraDataHora(name);
                 break;
             case 9:
                 Environment.Exit(0);
